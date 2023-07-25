@@ -24,14 +24,14 @@ class ImageInfo {
 
       this.$imageInfo.innerHTML = `
         <div class="content-wrapper">
-          <div class="title">
+          <h3 class="title">
             <span>${name}</span>
-            <div class="close">x</div>
-          </div>
+            <button class="close">x</button>
+          </h3>
           <img src="${url}" alt="${name}"/>        
           <div class="description">
-            <div>성격: ${temperament}</div>
-            <div>태생: ${origin}</div>
+            <p>성격: ${temperament}</p>
+            <p>태생: ${origin}</p>
           </div>
         </div>`;
       this.$imageInfo.style.display = "block";
