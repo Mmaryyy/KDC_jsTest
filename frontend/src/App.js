@@ -1,5 +1,3 @@
-console.log("app is running!");
-
 // 어플리케이션의 가장 큰 컨테이너 컴포넌트
 class App {
   // 돔을 가리키는 의미로 '$'을 표기
@@ -31,6 +29,13 @@ class App {
           this.loading.hide();
         });
       },
+      onRandomSearch: () => {
+        this.loading.show();
+        api.fetchRandomCats().then(({ data }) => {
+          this.setState(data);
+          this.loading.hide();
+        });
+      },
     });
 
     this.searchResult = new SearchResult({
@@ -54,7 +59,6 @@ class App {
   }
 
   setState(nextData) {
-    console.log(this);
     this.data = nextData;
     // props 드릴링 같은 방법이 아니라 직접 원시적으로 전해주고 있다.
     this.searchResult.setState(nextData);
